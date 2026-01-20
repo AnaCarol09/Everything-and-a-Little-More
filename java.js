@@ -92,6 +92,12 @@ function iniciarCatalogo(colecao) {
     renderizar();
   };
 
+  // Conecta o botão à função de adicionar
+  const btnAdicionar = document.getElementById("btnAdicionar");
+  if (btnAdicionar) {
+    btnAdicionar.addEventListener("click", window.adicionar);
+  }
+
   // carrega ao entrar
   renderizar();
 }
