@@ -92,12 +92,6 @@ function iniciarCatalogo(colecao) {
     renderizar();
   };
 
-  // Conecta o botão à função de adicionar
-  const btnAdicionar = document.getElementById("btnAdicionar");
-  if (btnAdicionar) {
-    btnAdicionar.addEventListener("click", window.adicionar);
-  }
-
   // carrega ao entrar
   renderizar();
 }
@@ -110,4 +104,13 @@ if (botaoLogout) {
     window.location.href = "index.html"; // tela de login
   });
 }
+
+const btnAdicionar = document.getElementById("btnAdicionar");
+
+if (btnAdicionar) {
+  btnAdicionar.addEventListener("click", adicionar);
+}
+
+iniciarCatalogo("Sucesso-total-F");
+
 
