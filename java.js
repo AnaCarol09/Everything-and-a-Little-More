@@ -111,6 +111,4 @@ if (botaoLogout) {
   });
 }
 
-iniciarCatalogo("Sucesso-total-F");
-
 
