@@ -14,7 +14,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-function iniciarCatalogo(colecao) {
+export function iniciarCatalogo(colecao) {
 
   const nomeInput = document.getElementById("nome");
   const imagemInput = document.getElementById("imagem");
