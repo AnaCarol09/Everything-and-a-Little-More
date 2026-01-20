@@ -1,6 +1,12 @@
 import { onAuthStateChanged, signOut } 
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { auth } from "./fire-base.js";
+
+import { 
+  collection, getDocs, addDoc, deleteDoc, doc 
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import { auth, db } from "./fire-base.js";
+
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -55,8 +61,8 @@ function iniciarCatalogo(colecao) {
 
   window.adicionar = async function () {
     // Verifica se o usuário está logado
-    if (!localStorage.getItem("logado")) {
-      alert("Você precisa estar logado para adicionar itens");
+    if (!auth.currentUser) {
+      alert("Você precisa estar logado");
       window.location.href = "index.html";
       return;
     }
