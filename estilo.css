@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #78b8f8;
+    color: whitesmoke;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    height: 250px;
+    width: auto;
+    align-items: center;
+}
+
+nav {
+    background-color: #5a9fd4;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+main {
+    margin: 5%;
+}
+
+section {
+    width: 100%;
+}
+
+section h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+
+article {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+article figure {
+    flex-shrink: 0;
+    min-width: 300px;
+    margin: 0;
+}
+
+article video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+}
+
+article p {
+    flex: 1;
+    line-height: 1.6;
+    text-align: right;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 900px) {
+    header img {
+        height: 180px;
+    }
+
+    article {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    article figure {
+        min-width: 100%;
+        max-width: 500px;
+    }
+
+    article p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        height: 150px;
+    }
+
+    main {
+        margin: 3%;
+    }
+
+    article {
+        gap: 15px;
+    }
+
+    article video {
+        max-width: 100%;
+    }
+
+    article p {
+        font-size: 14px;
+    }
+}
+
+footer {
+    background-color: #78b8f8;
+    color: whitesmoke;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+footer p {
+    font-size: 16px;
+    text-align: center;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+}
+
+footer img {
+    height: 200px;
+    width: auto;
+}

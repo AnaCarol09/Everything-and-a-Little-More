@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo-final.css">
+    <link rel="icon" href="./img/icon.jpg">
+    <title>Tudo e mais um pouco</title>
+</head>
+<body>
+    <header id="topo">
+        <a href="categoria-f.html">
+        <img src="./img/titulo.png" alt="">
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index-f.html">Filmes</a></li>
+            <li><a href="index-l.html">Livros</a></li>
+            <li><a href="index-s.html">Séries</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Catálogo de Filmes</h2>
+
+        <input id="nome" placeholder="Nome do filme">
+        <input id="imagem" placeholder="URL da imagem">
+        <input id="link" placeholder="Link do filme">
+        <button onclick="adicionar()">Adicionar</button>
+
+        <div id="lista"></div>
+    </main>
+    
+    <footer>
+        <p>© 2026 Tudo e mais um pouco. Todos os direitos reservados.</p>
+        <a id="voltando" href="#topo">
+            <img id="subir" src="./img/subir.png" alt="Voltar ao topo">
+        </a>
+    </footer>
+    <script src="java.js"></script>
+    <script>
+    iniciarCatalogo("Sucesso-total-F");
+    </script>
+</body>
+</html>
