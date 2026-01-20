@@ -116,3 +116,7 @@ figcaption {
         grid-template-columns: 1fr;
     }
 }
+
+button {
+  cursor: pointer;
+}

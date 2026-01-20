@@ -156,3 +156,7 @@ footer img {
     height: 200px;
     width: auto;
 }
+
+button {
+  cursor: pointer;
+}

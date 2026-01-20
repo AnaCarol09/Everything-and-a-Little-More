@@ -1,54 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <link rel="icon" href="./img/icon.jpg">
-    <title>Tudo e mais um pouco</title>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="estilo-login.css">
+  <link rel="icon" href="./img/icon.jpg">
 </head>
 <body>
-    <header id="topo">
-        <img src="./img/titulo.png" alt="">
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Filmes</a></li>
-            <li><a href="index-l.html">Livros</a></li>
-            <li><a href="index-s.html">Séries</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="section-p">
-            <h2>Filmes</h2>
-            <article id="article-p">
-                <a href="categoria-f.html">
-                    <figure id="figure-p">
-                        <video id="tela-filmes" autoplay loop muted playsinline aria-label="Vídeo sobre filmes">
-                        <source src="./videos/filmes.mp4" type="video/mp4">
-                        Seu navegador não suporta o elemento <code>video</code>.
-                        </video>
-                    </figure>
-                </a>
-                <p class="p-p">
-                    Um filme é um modo de pensar com imagens e tempo. <br>
-                    Ele nasce quando o olhar humano decide não apenas ver o mundo, mas interpretá-lo. Cada enquadramento é uma escolha ética: o que merece ser visto, <br>
-                    o que ficará fora, e por quanto tempo podemos suportar o silêncio antes da próxima imagem. O filme, assim, não registra a realidade — ele dialoga com ela. <br>
-                    Filosoficamente, um filme é a tentativa de dar forma ao invisível: à memória que escapa, ao desejo que não sabe se nomear, ao medo de desaparecer. <br>
-                    O movimento das imagens imita o movimento da consciência, que nunca é fixa, nunca é completa. Cortes são pensamentos. Planos longos são respirações. <br>
-                    O som é aquilo que insiste mesmo quando fechamos os olhos. Um filme também é um ato de fé no outro. Ele pressupõe alguém que ainda não chegou, <br>
-                    um espectador desconhecido, e confia que essa pessoa sentirá algo semelhante — ou completamente diferente, e ainda assim verdadeiro. Nesse encontro, <br>
-                    o filme deixa de ser objeto e se torna experiência. Bonitamente, um filme é o tempo aprendendo a se lembrar de si mesmo. É a prova de que, <br>
-                    mesmo sabendo que tudo passa, ainda escolhemos contar histórias. Porque enquanto uma imagem dura na tela, o mundo — por um instante — faz sentido. <br>
-                </p>
-            </article>
-        </section>
-    </main>
-    <footer>
-        <p>© 2026 Tudo e mais um pouco. Todos os direitos reservados.</p>
-        <a id="voltando" href="#topo">
-            <img id="subir" src="./img/subir.png" alt="Voltar ao topo">
-        </a>
-    </footer>
+
+<div class="login">
+  <h2>Login</h2>
+  <input type="text" id="usuario" placeholder="Usuário">
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+  <p id="erro"></p>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>
