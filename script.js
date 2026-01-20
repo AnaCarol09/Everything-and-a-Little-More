@@ -12,8 +12,9 @@ botao.addEventListener("click", async () => {
   try {
     await signInWithEmailAndPassword(auth, email, senha);
     window.location.href = "index-f.html";
-  } catch (e) {
-    erro.innerText = "Usuário ou senha inválidos";
+    } catch (e) {
+    erro.innerText = e.code;
     console.error(e);
-  }
+    }
+
 });
