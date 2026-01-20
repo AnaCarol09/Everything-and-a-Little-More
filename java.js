@@ -1,20 +1,21 @@
-function iniciarCatalogo(chaveStorage) {
-
-  const filmes = JSON.parse(localStorage.getItem(chaveStorage)) || [];
+function iniciarCatalogo() {
 
   const nomeInput = document.getElementById("nome");
   const imagemInput = document.getElementById("imagem");
   const linkInput = document.getElementById("link");
   const lista = document.getElementById("lista");
 
-  function salvar() {
-    localStorage.setItem(chaveStorage, JSON.stringify(filmes));
-  }
+  const filmesRef = collection(db, "filmes");
 
-  function renderizar() {
+  async function renderizar() {
     lista.innerHTML = "";
 
-    filmes.forEach((f, index) => {
+    const snapshot = await getDocs(filmesRef);
+
+    snapshot.forEach((docSnap) => {
+      const f = docSnap.data();
+      const id = docSnap.id;
+
       const div = document.createElement("div");
       div.className = "filme";
 
@@ -24,9 +25,8 @@ function iniciarCatalogo(chaveStorage) {
         <button class="remover">Remover</button>
       `;
 
-      div.querySelector(".remover").addEventListener("click", () => {
-        filmes.splice(index, 1);
-        salvar();
+      div.querySelector(".remover").addEventListener("click", async () => {
+        await deleteDoc(doc(db, "filmes", id));
         renderizar();
       });
 
@@ -34,7 +34,7 @@ function iniciarCatalogo(chaveStorage) {
     });
   }
 
-  window.adicionar = function () {
+  window.adicionar = async function () {
     const nome = nomeInput.value.trim();
     const imagem = imagemInput.value.trim();
     const link = linkInput.value.trim();
@@ -44,17 +44,19 @@ function iniciarCatalogo(chaveStorage) {
       return;
     }
 
-    filmes.push({ nome, imagem, link });
-    filmes.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
-
-    salvar();
-    renderizar();
+    await addDoc(filmesRef, {
+      nome,
+      imagem,
+      link
+    });
 
     nomeInput.value = "";
     imagemInput.value = "";
     linkInput.value = "";
+
+    renderizar();
   };
 
-  // renderiza ao entrar na página
+  // carrega ao entrar
   renderizar();
 }
