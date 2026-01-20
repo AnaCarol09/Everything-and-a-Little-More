@@ -1,3 +1,15 @@
+import { onAuthStateChanged, signOut } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { auth } from "./fire-base.js";
+
+
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "index.html";
+  }
+});
+
 function iniciarCatalogo(colecao) {
 
   const nomeInput = document.getElementById("nome");
@@ -29,7 +41,9 @@ function iniciarCatalogo(colecao) {
       div.innerHTML = `
         <img src="${f.imagem}" alt="${f.nome}">
         <a href="${f.link}" target="_blank">${f.nome}</a>
-        <button class="remover">Remover</button>
+        ${auth.currentUser && auth.currentUser.uid === f.usuario 
+          ? `<button class="remover">Remover</button>` 
+          : ""}
       `;
 
       div.querySelector(".remover").addEventListener("click", async () => {
@@ -49,13 +63,6 @@ function iniciarCatalogo(colecao) {
       return;
     }
 
-    // Pede a senha para confirmar a adição
-    const senhaConfirmacao = prompt("Digite sua senha para adicionar um item:");
-    if (senhaConfirmacao !== "2629") {
-      alert("Senha incorreta!");
-      return;
-    }
-
     const nome = nomeInput.value.trim();
     const imagem = imagemInput.value.trim();
     const link = linkInput.value.trim();
@@ -69,8 +76,9 @@ function iniciarCatalogo(colecao) {
       nome,
       imagem,
       link,
-      dataCriacao: new Date().toISOString(),
-      usuario: localStorage.getItem("usuario") || "anonimo"
+      usuario: auth.currentUser.uid,
+      email: auth.currentUser.email,
+      criadoEm: new Date()
     });
 
     nomeInput.value = "";
@@ -83,3 +91,13 @@ function iniciarCatalogo(colecao) {
   // carrega ao entrar
   renderizar();
 }
+
+const botaoLogout = document.getElementById("logout");
+
+if (botaoLogout) {
+  botaoLogout.addEventListener("click", async () => {
+    await signOut(auth);
+    window.location.href = "index.html"; // tela de login
+  });
+}
+

@@ -1,12 +1,19 @@
-  function login() {
-    const usuario = document.getElementById("usuario").value;
-    const senha = document.getElementById("senha").value;
+import { signInWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { auth } from "./fire-base.js";
 
-    if (usuario === "topmais" && senha === "2629") {
-      localStorage.setItem("logado", "true");
-      localStorage.setItem("usuario", usuario);
-      window.location.href = "index-f.html";
-    } else {
-      document.getElementById("erro").innerText = "Usuário ou senha inválidos";
-    }
+const botao = document.getElementById("btnLogin");
+const erro = document.getElementById("erro");
+
+botao.addEventListener("click", async () => {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  try {
+    await signInWithEmailAndPassword(auth, email, senha);
+    window.location.href = "index-f.html";
+  } catch (e) {
+    erro.innerText = "Usuário ou senha inválidos";
+    console.error(e);
   }
+});
