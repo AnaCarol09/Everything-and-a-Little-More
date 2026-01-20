@@ -16,5 +16,4 @@ botao.addEventListener("click", async () => {
     erro.innerText = e.code;
     console.error(e);
     }
-
 });
