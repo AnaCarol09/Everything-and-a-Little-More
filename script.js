@@ -4,6 +4,7 @@
 
     if (usuario === "topmais" && senha === "2629") {
       localStorage.setItem("logado", "true");
+      localStorage.setItem("usuario", usuario);
       window.location.href = "index-f.html";
     } else {
       document.getElementById("erro").innerText = "Usuário ou senha inválidos";
