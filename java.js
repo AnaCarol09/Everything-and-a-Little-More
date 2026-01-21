@@ -35,10 +35,15 @@ export function iniciarCatalogo(colecao) {
       return;
     }
 
+    // Converte para array e ordena alfabeticamente
+    const itens = [];
     snapshot.forEach((docSnap) => {
-      const f = docSnap.data();
-      const id = docSnap.id;
+      itens.push({ id: docSnap.id, data: docSnap.data() });
+    });
 
+    itens.sort((a, b) => a.data.nome.localeCompare(b.data.nome));
+
+    itens.forEach(({ id, data: f }) => {
       const div = document.createElement("div");
       div.className = "filme";
 
